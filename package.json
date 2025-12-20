@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "cd frontendofbook && npm run dev",
-    "build": "cd frontendofbook && npm install && npm run build",
+    "build": "cd frontendofbook && npm install && npx docusaurus build",
     "serve": "cd frontendofbook && npm run serve",
     "swarm": "node .specify/scripts/swarm-runner.js",
     "clean": "rm -rf node_modules && cd frontendofbook && rm -rf node_modules build",

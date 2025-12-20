@@ -4,9 +4,9 @@
   "description": "Frontend for AI-powered book with embedded RAG chatbot using Spec-Driven Development",
   "main": "index.js",
   "scripts": {
-    "dev": "docusaurus start",
-    "build": "docusaurus build",
-    "serve": "docusaurus serve",
+    "dev": "npx docusaurus start",
+    "build": "npx docusaurus build",
+    "serve": "npx docusaurus serve",
     "swarm": "node ../.specify/scripts/swarm-runner.js",
     "clean": "rm -rf build node_modules",
     "test": "echo \"Error: no test specified\" && exit 1"
