@@ -1,0 +1,22 @@
+{
+  "framework": "docusaurus",
+  "builds": [
+    {
+      "src": "frontendofbook/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build",
+        "buildCommand": "cd frontendofbook && npm run build"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/build/$1"
+    }
+  ],
+  "github": {
+    "silent": true
+  }
+}
