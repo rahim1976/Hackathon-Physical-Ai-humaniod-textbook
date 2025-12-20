@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import Accordion from '@site/src/components/Accordion';
 
 import styles from './index.module.css';
 
@@ -21,7 +21,7 @@ function HomepageHeader() {
             Read the Book
           </Link>
           <Link
-            className="button button--primary button--lg margin-left--sm"
+            className="button button--primary button--lg"
             to="/docs/ros2-humanoid/intro-to-ros2">
             Start with Module-01 ROS 2
           </Link>
@@ -32,28 +32,35 @@ function HomepageHeader() {
 }
 
 function FeaturesSection() {
+  const features = [
+    {
+      icon: '🤖',
+      title: 'AI-Powered Learning',
+      description: 'Our book combines traditional documentation with AI-powered assistance to provide contextual answers based on the content, ensuring you get relevant information quickly.'
+    },
+    {
+      icon: '📚',
+      title: 'Modular Curriculum',
+      description: 'Learn through structured modules, starting with the fundamentals of ROS 2 and progressing to advanced humanoid robotics concepts.'
+    },
+    {
+      icon: '🔍',
+      title: 'Grounded Responses',
+      description: 'All AI responses are grounded in actual documentation to ensure accuracy and prevent hallucinations, providing reliable information.'
+    }
+  ];
+
   return (
     <section className={styles.featuresSection}>
-      <div className="container padding-vert--lg">
-        <div className="row">
-          <div className="col col--4">
-            <h2>🤖 AI-Powered Learning</h2>
-            <p>
-              Our book combines traditional documentation with AI-powered assistance to provide contextual answers based on the content, ensuring you get relevant information quickly.
-            </p>
-          </div>
-          <div className="col col--4">
-            <h2>📚 Modular Curriculum</h2>
-            <p>
-              Learn through structured modules, starting with the fundamentals of ROS 2 and progressing to advanced humanoid robotics concepts.
-            </p>
-          </div>
-          <div className="col col--4">
-            <h2>🔍 Grounded Responses</h2>
-            <p>
-              All AI responses are grounded in actual documentation to ensure accuracy and prevent hallucinations, providing reliable information.
-            </p>
-          </div>
+      <div className="container">
+        <div className={styles.featuresGrid}>
+          {features.map((feature, index) => (
+            <div key={index} className={styles.featureCard}>
+              <div className={styles.featureIcon}>{feature.icon}</div>
+              <h2>{feature.title}</h2>
+              <p>{feature.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -61,51 +68,53 @@ function FeaturesSection() {
 }
 
 function ModulesSection() {
+  const modules = [
+    {
+      icon: '🔧',
+      title: 'Module 1',
+      subtitle: 'ROS 2 Fundamentals',
+      description: 'Introduction to ROS 2, DDS concepts, and the middleware nervous system for humanoid robots.',
+      path: '/docs/ros2-humanoid/intro-to-ros2'
+    },
+    {
+      icon: '👁️',
+      title: 'Module 2',
+      subtitle: 'Perception Systems',
+      description: 'Learn about sensors, computer vision, and perception algorithms for humanoid robots.',
+      path: '/docs/digital-twin/sensor-simulation-validation'
+    },
+    {
+      icon: '🚶',
+      title: 'Module 3',
+      subtitle: 'Motion Planning',
+      description: 'Understand locomotion, balance, and movement planning for humanoid robots.',
+      path: '/docs/isaac-ai-brain/nav2-path-planning-humanoid'
+    },
+    {
+      icon: '🤝',
+      title: 'Module 4',
+      subtitle: 'Human-Robot Interaction',
+      description: 'Explore interfaces, communication, and interaction patterns for humanoid robots.',
+      path: '/docs/vla-llm-integration/cognitive-planning-llms-ros2'
+    }
+  ];
+
   return (
-    <section className={clsx(styles.modulesSection, 'bg--secondary')}>
-      <div className="container padding-vert--lg">
-        <h2 className="text--center padding-bottom--lg">Learning Modules</h2>
-        <div className="row">
-          <div className="col col--3">
-            <div className="text--center padding-horiz--md">
-              <h3>Module 1</h3>
-              <h4>ROS 2 Fundamentals</h4>
-              <p>Introduction to ROS 2, DDS concepts, and the middleware nervous system for humanoid robots.</p>
-              <Link to="/docs/ros2-humanoid/intro-to-ros2" className="button button--primary button--block">
+    <section className={styles.modulesSection}>
+      <div className="container">
+        <h2>Learning Modules</h2>
+        <div className={styles.modulesGrid}>
+          {modules.map((module, index) => (
+            <div key={index} className={styles.moduleCard}>
+              <div className={styles.moduleIcon}>{module.icon}</div>
+              <h3>{module.title}</h3>
+              <h4>{module.subtitle}</h4>
+              <p>{module.description}</p>
+              <Link to={module.path} className="button button--primary">
                 Start Learning
               </Link>
             </div>
-          </div>
-          <div className="col col--3">
-            <div className="text--center padding-horiz--md">
-              <h3>Module 2</h3>
-              <h4>Perception Systems</h4>
-              <p>Learn about sensors, computer vision, and perception algorithms for humanoid robots.</p>
-              <Link to="/docs/intro" className="button button--secondary button--block button--disabled">
-                Coming Soon
-              </Link>
-            </div>
-          </div>
-          <div className="col col--3">
-            <div className="text--center padding-horiz--md">
-              <h3>Module 3</h3>
-              <h4>Motion Planning</h4>
-              <p>Understand locomotion, balance, and movement planning for humanoid robots.</p>
-              <Link to="/docs/intro" className="button button--secondary button--block button--disabled">
-                Coming Soon
-              </Link>
-            </div>
-          </div>
-          <div className="col col--3">
-            <div className="text--center padding-horiz--md">
-              <h3>Module 4</h3>
-              <h4>Human-Robot Interaction</h4>
-              <p>Explore interfaces, communication, and interaction patterns for humanoid robots.</p>
-              <Link to="/docs/intro" className="button button--secondary button--block button--disabled">
-                Coming Soon
-              </Link>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
@@ -113,28 +122,39 @@ function ModulesSection() {
 }
 
 function HowItWorksSection() {
+  const steps = [
+    {
+      title: "Select a Module",
+      description: "Choose from our structured learning modules based on your current knowledge level."
+    },
+    {
+      title: "Learn Concepts",
+      description: "Study the documentation with interactive examples and practical exercises."
+    },
+    {
+      title: "Ask Questions",
+      description: "Use our AI assistant to get contextual answers grounded in the documentation."
+    }
+  ];
+
   return (
     <section className={styles.howItWorksSection}>
-      <div className="container padding-vert--lg">
-        <h2 className="text--center padding-bottom--lg">How It Works</h2>
-        <div className="row">
-          <div className="col col--4">
-            <div className="text--center">
-              <h3>1. Select a Module</h3>
-              <p>Choose from our structured learning modules based on your current knowledge level.</p>
-            </div>
-          </div>
-          <div className="col col--4">
-            <div className="text--center">
-              <h3>2. Learn Concepts</h3>
-              <p>Study the documentation with interactive examples and practical exercises.</p>
-            </div>
-          </div>
-          <div className="col col--4">
-            <div className="text--center">
-              <h3>3. Ask Questions</h3>
-              <p>Use our AI assistant to get contextual answers grounded in the documentation.</p>
-            </div>
+      <div className="container">
+        <h2>How It Works</h2>
+        <div className={styles.workflowContainer}>
+          <div className={styles.workflowSteps}>
+            {steps.map((step, index) => (
+              <div
+                key={index}
+                className={styles.workflowStep}
+                data-step={index + 1}
+              >
+                <div className={styles.workflowStepContent}>
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -144,27 +164,15 @@ function HowItWorksSection() {
 
 function FAQSection() {
   return (
-    <section className={clsx(styles.faqSection, 'bg--secondary')}>
-      <div className="container padding-vert--lg">
-        <h2 className="text--center padding-bottom--lg">Frequently Asked Questions</h2>
-        <div className="row">
-          <div className="col col--6">
-            <h3>Who is this for?</h3>
-            <p>AI students and developers entering humanoid robotics who want to learn ROS 2 concepts in a structured, interactive way.</p>
+    <section className={styles.faqSection}>
+      <div className="container">
+        <h2>Frequently Asked Questions</h2>
+        <div className={styles.faqLayout}>
+          <div className={styles.faqImage}>
+            Support & Help
           </div>
-          <div className="col col--6">
-            <h3>Do I need prior robotics experience?</h3>
-            <p>No, the modules start with fundamentals and gradually build up to advanced concepts, making it accessible for beginners.</p>
-          </div>
-        </div>
-        <div className="row padding-top--lg">
-          <div className="col col--6">
-            <h3>How is this different from other ROS 2 tutorials?</h3>
-            <p>Our approach combines structured learning modules with AI-powered assistance that provides contextual answers grounded in the documentation.</p>
-          </div>
-          <div className="col col--6">
-            <h3>Can I contribute to the content?</h3>
-            <p>Yes! This project follows a spec-driven development approach, and contributions are welcome through the GitHub repository.</p>
+          <div className={styles.faqContainer}>
+            <Accordion />
           </div>
         </div>
       </div>
