@@ -1,0 +1,51 @@
+{
+  "name": "ai-spec-driven-book-with-rag-chatbot-project",
+  "version": "1.0.0",
+  "description": "An AI-powered book with embedded RAG chatbot using Spec-Driven Development - Project Root",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cd frontendofbook && npm run dev",
+    "build": "cd frontendofbook && npm run build",
+    "serve": "cd frontendofbook && npm run serve",
+    "swarm": "node .specify/scripts/swarm-runner.js",
+    "clean": "rm -rf node_modules && cd frontendofbook && rm -rf node_modules build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install-frontend": "cd frontendofbook && npm install",
+    "start-backend": "python -m src.backend.main",
+    "install": "npm install && cd frontendofbook && npm install"
+  },
+  "keywords": [
+    "spec-driven",
+    "ai",
+    "book",
+    "rag",
+    "chatbot",
+    "project-root"
+  ],
+  "author": "Spec-Kit Plus",
+  "license": "MIT",
+  "dependencies": {
+    "fastapi": "^0.0.4",
+    "openai": "^4.24.7",
+    "qdrant-client": "^1.8.0",
+    "psycopg2-binary": "^2.9.9"
+  },
+  "devDependencies": {
+    "typescript": "~5.2.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 3 chrome version",
+      "last 3 firefox version",
+      "last 5 safari version"
+    ]
+  },
+  "engines": {
+    "node": ">=18.0"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "vla-llm-integration/capstone-autonomous-humanoid-tasks",
+  "title": "Capstone: Autonomous Humanoid Executing Tasks",
+  "description": "Introduction",
+  "source": "@site/docs/vla-llm-integration/capstone-autonomous-humanoid-tasks.md",
+  "sourceDirName": "vla-llm-integration",
+  "slug": "/vla-llm-integration/capstone-autonomous-humanoid-tasks",
+  "permalink": "/docs/vla-llm-integration/capstone-autonomous-humanoid-tasks",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/vla-llm-integration/capstone-autonomous-humanoid-tasks.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Cognitive Planning using LLMs for ROS 2",
+    "permalink": "/docs/vla-llm-integration/cognitive-planning-llms-ros2"
+  },
+  "next": {
+    "title": "Development Workflow",
+    "permalink": "/docs/development/workflow"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "ai-integration/rag-system",
+  "title": "RAG System Implementation",
+  "description": "This document details the technical implementation of the Retrieval-Augmented Generation system that powers the chatbot.",
+  "source": "@site/docs/ai-integration/rag-system.md",
+  "sourceDirName": "ai-integration",
+  "slug": "/ai-integration/rag-system",
+  "permalink": "/docs/ai-integration/rag-system",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/ai-integration/rag-system.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "AI Integration Overview",
+    "permalink": "/docs/ai-integration/overview"
+  },
+  "next": {
+    "title": "Introduction to ROS 2 for Physical AI",
+    "permalink": "/docs/ros2-humanoid/intro-to-ros2"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "digital-twin/sensor-simulation-validation",
+  "title": "Sensor Simulation & Validation",
+  "description": "Introduction to Sensor Simulation in Robotics",
+  "source": "@site/docs/digital-twin/sensor-simulation-validation.md",
+  "sourceDirName": "digital-twin",
+  "slug": "/digital-twin/sensor-simulation-validation",
+  "permalink": "/docs/digital-twin/sensor-simulation-validation",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/digital-twin/sensor-simulation-validation.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3,
+    "title": "Sensor Simulation & Validation"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Digital Twins & HRI in Unity",
+    "permalink": "/docs/digital-twin/digital-twins-hri-unity"
+  },
+  "next": {
+    "title": "NVIDIA Isaac Sim for Photorealistic Simulation",
+    "permalink": "/docs/isaac-ai-brain/isaac-sim-photorealistic-simulation"
+  }
+}

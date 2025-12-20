@@ -1,0 +1,24 @@
+{
+  "id": "vla-llm-integration/voice-to-action-whisper",
+  "title": "Voice-to-Action with OpenAI Whisper",
+  "description": "Introduction",
+  "source": "@site/docs/vla-llm-integration/voice-to-action-whisper.md",
+  "sourceDirName": "vla-llm-integration",
+  "slug": "/vla-llm-integration/voice-to-action-whisper",
+  "permalink": "/docs/vla-llm-integration/voice-to-action-whisper",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/vla-llm-integration/voice-to-action-whisper.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Nav2 Path Planning for Humanoid Robots",
+    "permalink": "/docs/isaac-ai-brain/nav2-path-planning-humanoid"
+  },
+  "next": {
+    "title": "Cognitive Planning using LLMs for ROS 2",
+    "permalink": "/docs/vla-llm-integration/cognitive-planning-llms-ros2"
+  }
+}

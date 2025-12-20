@@ -1,0 +1,53 @@
+{
+  "name": "ai-spec-driven-book-with-rag-chatbot-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for AI-powered book with embedded RAG chatbot using Spec-Driven Development",
+  "main": "index.js",
+  "scripts": {
+    "dev": "docusaurus start",
+    "build": "docusaurus build",
+    "serve": "docusaurus serve",
+    "swarm": "node ../.specify/scripts/swarm-runner.js",
+    "clean": "rm -rf build node_modules",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "docusaurus",
+    "frontend",
+    "documentation",
+    "ai",
+    "book"
+  ],
+  "author": "Spec-Kit Plus",
+  "license": "MIT",
+  "dependencies": {
+    "@docusaurus/core": "^3.9.2",
+    "@mdx-js/react": "^3.0.0",
+    "clsx": "^2.0.0",
+    "prism-react-renderer": "^2.3.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "^3.9.2",
+    "@docusaurus/preset-classic": "^3.9.2",
+    "@docusaurus/tsconfig": "^3.1.0",
+    "@docusaurus/types": "^3.9.2",
+    "typescript": "~5.2.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 3 chrome version",
+      "last 3 firefox version",
+      "last 5 safari version"
+    ]
+  },
+  "engines": {
+    "node": ">=18.0"
+  }
+}

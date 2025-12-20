@@ -1,0 +1,67 @@
+version: '3.8'
+
+services:
+  # Docusaurus documentation site
+  frontend:
+    build:
+      context: .
+      target: frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    volumes:
+      - ./frontendofbook:/app
+    depends_on:
+      - backend
+    environment:
+      - BACKEND_URL=http://backend:8000
+
+  # FastAPI backend for chatbot
+  backend:
+    build:
+      context: .
+      target: backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./src:/app/src
+      - ./requirements.txt:/app/requirements.txt
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - QDRANT_URL=${QDRANT_URL}
+      - QDRANT_API_KEY=${QDRANT_API_KEY}
+      - DATABASE_URL=${DATABASE_URL}
+      - CHATBOT_MODEL=${CHATBOT_MODEL:-gpt-4-turbo}
+      - EMBEDDING_MODEL=${EMBEDDING_MODEL:-text-embedding-3-small}
+    depends_on:
+      - qdrant
+      - postgres
+
+  # Qdrant vector database
+  qdrant:
+    image: qdrant/qdrant:latest
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant_data:/qdrant/storage
+    environment:
+      - QDRANT_API_KEY=${QDRANT_API_KEY}
+
+  # PostgreSQL database
+  postgres:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=chatbot
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-password}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  qdrant_data:
+  postgres_data:

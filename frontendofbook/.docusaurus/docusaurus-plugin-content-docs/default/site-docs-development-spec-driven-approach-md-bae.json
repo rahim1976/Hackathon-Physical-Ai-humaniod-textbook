@@ -1,0 +1,27 @@
+{
+  "id": "development/spec-driven-approach",
+  "title": "Spec-Driven Approach",
+  "description": "The Spec-Driven Development (SDD) approach is central to this project's methodology. Unlike traditional development approaches, SDD emphasizes creating comprehensive specifications before implementation begins.",
+  "source": "@site/docs/development/spec-driven-approach.md",
+  "sourceDirName": "development",
+  "slug": "/development/spec-driven-approach",
+  "permalink": "/docs/development/spec-driven-approach",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/development/spec-driven-approach.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Development Workflow",
+    "permalink": "/docs/development/workflow"
+  },
+  "next": {
+    "title": "Conclusion",
+    "permalink": "/docs/conclusion"
+  }
+}

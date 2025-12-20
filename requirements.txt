@@ -1,0 +1,33 @@
+# Core dependencies for AI/Spec-Driven Book with Embedded RAG Chatbot
+
+# FastAPI and web framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+
+# OpenAI API client
+openai==1.3.8
+
+# Vector database client
+qdrant-client==1.8.0
+
+# Database clients
+asyncpg==0.29.0
+psycopg2-binary==2.9.9
+
+# Document processing
+markdown==3.5.1
+beautifulsoup4==4.12.2
+
+# Text processing and embeddings
+tiktoken==0.5.2
+sentence-transformers==2.2.2
+torch==2.1.1
+
+# Utilities
+python-dotenv==1.0.0
+pyyaml==6.0.1
+
+# Testing
+pytest==7.4.3
+pytest-asyncio==0.21.1

@@ -1,0 +1,128 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/docs",
+          "mainDocId": "intro",
+          "docs": [
+            {
+              "id": "ai-integration/overview",
+              "path": "/docs/ai-integration/overview",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "ai-integration/rag-system",
+              "path": "/docs/ai-integration/rag-system",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "conclusion",
+              "path": "/docs/conclusion",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "development/spec-driven-approach",
+              "path": "/docs/development/spec-driven-approach",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "development/workflow",
+              "path": "/docs/development/workflow",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "digital-twin/digital-twins-hri-unity",
+              "path": "/docs/digital-twin/digital-twins-hri-unity",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "digital-twin/physics-simulation-gazebo",
+              "path": "/docs/digital-twin/physics-simulation-gazebo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "digital-twin/sensor-simulation-validation",
+              "path": "/docs/digital-twin/sensor-simulation-validation",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "getting-started/configuration",
+              "path": "/docs/getting-started/configuration",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "getting-started/installation",
+              "path": "/docs/getting-started/installation",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "intro",
+              "path": "/docs/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "isaac-ai-brain/isaac-ros-vslam-navigation",
+              "path": "/docs/isaac-ai-brain/isaac-ros-vslam-navigation",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "isaac-ai-brain/isaac-sim-photorealistic-simulation",
+              "path": "/docs/isaac-ai-brain/isaac-sim-photorealistic-simulation",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "isaac-ai-brain/nav2-path-planning-humanoid",
+              "path": "/docs/isaac-ai-brain/nav2-path-planning-humanoid",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "ros2-humanoid/communication-model",
+              "path": "/docs/ros2-humanoid/communication-model",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "ros2-humanoid/intro-to-ros2",
+              "path": "/docs/ros2-humanoid/intro-to-ros2",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "ros2-humanoid/robot-structure-urdf",
+              "path": "/docs/ros2-humanoid/robot-structure-urdf",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "vla-llm-integration/capstone-autonomous-humanoid-tasks",
+              "path": "/docs/vla-llm-integration/capstone-autonomous-humanoid-tasks",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "vla-llm-integration/cognitive-planning-llms-ros2",
+              "path": "/docs/vla-llm-integration/cognitive-planning-llms-ros2",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "vla-llm-integration/voice-to-action-whisper",
+              "path": "/docs/vla-llm-integration/voice-to-action-whisper",
+              "sidebar": "tutorialSidebar"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "tutorialSidebar": {
+              "link": {
+                "path": "/docs/intro",
+                "label": "intro"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}
