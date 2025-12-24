@@ -1,0 +1,329 @@
+openapi: 3.0.3
+info:
+  title: OpenAI Agent with Qdrant Integration API
+  description: API for a retrieval-augmented agent that uses OpenAI Agents SDK and Qdrant vector database
+  version: 1.0.0
+servers:
+  - url: http://localhost:8000
+    description: Development server
+paths:
+  /api/agent/chat:
+    post:
+      summary: Chat with the retrieval-augmented agent
+      description: Send a query to the agent and receive a response based on retrieved content from Qdrant
+      operationId: chatWithAgent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AgentChatRequest'
+      responses:
+        '200':
+          description: Successful response from the agent
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentChatResponse'
+        '400':
+          description: Bad request - invalid input parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - missing or invalid API key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - bearerAuth: []
+      tags:
+        - Agent
+  /api/agent/health:
+    get:
+      summary: Health check
+      description: Check the health status of the agent service
+      operationId: healthCheck
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+        '500':
+          description: Service is unhealthy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - Health
+  /api/agent/retrieve:
+    post:
+      summary: Direct content retrieval
+      description: Retrieve relevant content from Qdrant without generating an agent response
+      operationId: retrieveContent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RetrieveRequest'
+      responses:
+        '200':
+          description: Successfully retrieved content
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RetrieveResponse'
+        '400':
+          description: Bad request - invalid input parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - bearerAuth: []
+      tags:
+        - Agent
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    AgentChatRequest:
+      type: object
+      required:
+        - query
+      properties:
+        query:
+          type: string
+          description: The user's query to the agent
+          example: "What is ROS2?"
+          minLength: 1
+          maxLength: 1000
+        top_k:
+          type: integer
+          description: Number of top results to retrieve from Qdrant
+          default: 5
+          minimum: 1
+          maximum: 20
+          example: 5
+        threshold:
+          type: number
+          description: Minimum similarity score threshold for retrieval
+          default: 0.5
+          minimum: 0.0
+          maximum: 1.0
+          example: 0.5
+        temperature:
+          type: number
+          description: Temperature parameter for response generation
+          default: 0.7
+          minimum: 0.0
+          maximum: 2.0
+          example: 0.7
+    AgentChatResponse:
+      type: object
+      required:
+        - response
+        - sources
+        - chunks_used
+        - status
+      properties:
+        response:
+          type: string
+          description: The agent's response to the query
+          example: "ROS2 is a flexible framework for robotics development..."
+        sources:
+          type: array
+          description: List of source URLs referenced in the response
+          items:
+            type: string
+            format: uri
+          example: ["https://example.com/ros2-intro", "https://example.com/ros2-architecture"]
+        chunks_used:
+          type: integer
+          description: Number of retrieved chunks used in the response
+          example: 3
+        relevant_chunks:
+          type: array
+          description: Detailed information about the chunks used
+          items:
+            $ref: '#/components/schemas/RetrievalResult'
+        status:
+          type: string
+          description: Status of the request
+          enum: [success, error]
+          example: success
+        request_id:
+          type: string
+          description: Unique identifier for the request
+          format: uuid
+          example: "550e8400-e29b-41d4-a716-446655440000"
+        error:
+          type: string
+          description: Error message if status is error
+          example: "Failed to retrieve content from Qdrant"
+    RetrieveRequest:
+      type: object
+      required:
+        - query
+      properties:
+        query:
+          type: string
+          description: The query to search for in Qdrant
+          example: "What is ROS2?"
+          minLength: 1
+          maxLength: 1000
+        top_k:
+          type: integer
+          description: Number of top results to retrieve
+          default: 5
+          minimum: 1
+          maximum: 20
+          example: 5
+        threshold:
+          type: number
+          description: Minimum similarity score threshold
+          default: 0.5
+          minimum: 0.0
+          maximum: 1.0
+          example: 0.5
+    RetrieveResponse:
+      type: object
+      required:
+        - results
+        - status
+      properties:
+        results:
+          type: array
+          description: List of retrieved content chunks
+          items:
+            $ref: '#/components/schemas/RetrievalResult'
+        status:
+          type: string
+          description: Status of the retrieval request
+          enum: [success, error]
+          example: success
+        query_time_ms:
+          type: number
+          description: Time taken to execute the query in milliseconds
+          example: 1234.5
+    RetrievalResult:
+      type: object
+      required:
+        - id
+        - content
+        - url
+        - similarity_score
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the chunk in Qdrant
+          example: "doc123_chunk_001"
+        content:
+          type: string
+          description: The retrieved text content
+          example: "ROS2 (Robot Operating System 2) is a flexible framework for robotics development..."
+        url:
+          type: string
+          description: Source URL for the content
+          format: uri
+          example: "https://example.com/ros2-intro"
+        position:
+          type: integer
+          description: Position in the original document
+          default: 0
+          example: 1
+        similarity_score:
+          type: number
+          description: Semantic similarity score (0.0-1.0)
+          minimum: 0.0
+          maximum: 1.0
+          example: 0.85
+        section:
+          type: string
+          description: Section name if available
+          example: "introduction"
+        heading:
+          type: string
+          description: Heading name if available
+          example: "What is ROS2?"
+        created_at:
+          type: string
+          description: When the chunk was indexed (ISO 8601 format)
+          format: date-time
+          example: "2023-10-20T10:00:00Z"
+    ErrorResponse:
+      type: object
+      required:
+        - error
+        - status
+      properties:
+        error:
+          type: string
+          description: Error message
+          example: "Invalid API key provided"
+        status:
+          type: string
+          description: HTTP status code
+          example: 401
+        details:
+          type: object
+          description: Additional error details
+          example: {"code": "AUTH_ERROR", "message": "Invalid credentials"}
+    HealthResponse:
+      type: object
+      required:
+        - status
+        - timestamp
+      properties:
+        status:
+          type: string
+          description: Health status of the service
+          enum: [healthy, unhealthy]
+          example: healthy
+        timestamp:
+          type: string
+          format: date-time
+          description: Timestamp of the health check
+          example: "2023-10-20T10:00:00Z"
+        details:
+          type: object
+          description: Additional health check details
+          properties:
+            openai_connected:
+              type: boolean
+              description: Whether OpenAI service is accessible
+              example: true
+            qdrant_connected:
+              type: boolean
+              description: Whether Qdrant service is accessible
+              example: true
+            version:
+              type: string
+              description: Service version
+              example: "1.0.0"
+tags:
+  - name: Agent
+    description: Agent-related operations
+  - name: Health
+    description: Health check operations

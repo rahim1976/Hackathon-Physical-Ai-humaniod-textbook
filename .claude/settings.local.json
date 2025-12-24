@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(.specify/scripts/powershell/create-new-feature.ps1 -Json \"/sp.specify\nSpec-4: Backend–frontend integration using FastAPI for RAG chatbot\n\nTarget audience:\n- Full-stack engineers integrating AI backends with web frontends\n\nFocus:\n- Exposing Agent and retrieval capabilities via FastAPI endpoints\n- Establishing local communication between frontend and backend\n- Enabling user queries \\(and selected-text queries\\) to reach the Agent\n\nSuccess criteria:\n- FastAPI server runs locally without errors\n- Frontend can send user queries to backend endpoints\n- Agent responses are returned correctly to the frontend\n- Selected text context is accepted and used in responses\n- API responses are stable and well-structured \\(JSON\\)\n\nConstraints:\n- Backend framework: FastAPI\n- Agent: OpenAI Agents SDK \\(Spec-3\\)\n- Retrieval: Qdrant + Cohere embeddings \\(Spec-1 & Spec-2\\)\n- Local development environment only\n- Clear separation between API, Agent, and retrieval layers\" --json --number 7 --short-name \"fastapi-rag-integration\" \"Backend–frontend integration using FastAPI for RAG chatbot\")"
+    ]
+  }
+}

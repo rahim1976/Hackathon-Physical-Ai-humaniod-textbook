@@ -439,6 +439,28 @@ p {
   max-width: 100%;
 }
 
+.faqContent {
+  width: 100%;
+}
+
+.faqContent h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.faqContent h3:first-child {
+  margin-top: 0;
+}
+
+.faqContent p {
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
 .faqItem {
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius);

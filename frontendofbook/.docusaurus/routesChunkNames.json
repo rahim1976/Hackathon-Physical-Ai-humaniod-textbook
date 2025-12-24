@@ -1,102 +1,152 @@
 {
-  "/docs-732": {
-    "__comp": "5e95c892",
+  "/__docusaurus/debug-5ff": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
     "__context": {
-      "plugin": "aba21aa0"
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/__docusaurus/debug/config-5ba": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/__docusaurus/debug/content-a2b": {
+    "__comp": "__comp---theme-debug-contentba-8-ce7",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    },
+    "__props": "__props---docusaurus-debug-content-3-c-0-be2"
+  },
+  "/__docusaurus/debug/globalData-c3c": {
+    "__comp": "__comp---theme-debug-global-dataede-0fa",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/__docusaurus/debug/metadata-156": {
+    "__comp": "__comp---theme-debug-site-metadata-68-e-3d4",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/__docusaurus/debug/registry-88c": {
+    "__comp": "__comp---theme-debug-registry-679-501",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/__docusaurus/debug/routes-000": {
+    "__comp": "__comp---theme-debug-routes-946-699",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/Root-940": {
+    "__comp": "__comp---site-src-pages-root-js-522-bbd",
+    "__context": {
+      "plugin": "plugin---roota-74-3ae"
+    },
+    "config": "config---root-5-e-9-9d3"
+  },
+  "/docs-732": {
+    "__comp": "__comp---theme-docs-root-5-e-9-0b6",
+    "__context": {
+      "plugin": "plugin---docsaba-d7c"
     }
   },
   "/docs-170": {
-    "__comp": "a7bd4aaa",
-    "__props": "0058b4c6"
+    "__comp": "__comp---theme-doc-version-roota-7-b-5de",
+    "__props": "__props---docs-005-788"
   },
   "/docs-bd5": {
-    "__comp": "a94703ab"
+    "__comp": "__comp---theme-doc-roota-94-67a"
   },
   "/docs/ai-integration/overview-ae4": {
-    "__comp": "17896441",
-    "content": "d16de9df"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-ai-integration-overviewd-16-3a1"
   },
   "/docs/ai-integration/rag-system-8b0": {
-    "__comp": "17896441",
-    "content": "619a5b1d"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-ai-integration-rag-system-619-8de"
   },
   "/docs/conclusion-95e": {
-    "__comp": "17896441",
-    "content": "85be18e3"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-conclusion-85-b-e0a"
   },
   "/docs/development/spec-driven-approach-a98": {
-    "__comp": "17896441",
-    "content": "baeee504"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-development-spec-driven-approachbae-4d0"
   },
   "/docs/development/workflow-3da": {
-    "__comp": "17896441",
-    "content": "d758d333"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-development-workflowd-75-157"
   },
   "/docs/digital-twin/digital-twins-hri-unity-4ae": {
-    "__comp": "17896441",
-    "content": "f09c9d75"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-digital-twin-digital-twins-hri-unityf-09-6f5"
   },
   "/docs/digital-twin/physics-simulation-gazebo-f35": {
-    "__comp": "17896441",
-    "content": "49fae51a"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-digital-twin-physics-simulation-gazebo-49-f-7af"
   },
   "/docs/digital-twin/sensor-simulation-validation-737": {
-    "__comp": "17896441",
-    "content": "a431e579"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-digital-twin-sensor-simulation-validationa-43-afc"
   },
   "/docs/getting-started/configuration-468": {
-    "__comp": "17896441",
-    "content": "009f1e98"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-getting-started-configuration-009-150"
   },
   "/docs/getting-started/installation-267": {
-    "__comp": "17896441",
-    "content": "54f44165"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-getting-started-installation-54-f-18d"
   },
   "/docs/intro-61d": {
-    "__comp": "17896441",
-    "content": "0e384e19"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-intro-0-e-3-be1"
   },
   "/docs/isaac-ai-brain/isaac-ros-vslam-navigation-0c5": {
-    "__comp": "17896441",
-    "content": "58ba7b63"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-isaac-ai-brain-isaac-ros-vslam-navigation-58-b-294"
   },
   "/docs/isaac-ai-brain/isaac-sim-photorealistic-simulation-3e2": {
-    "__comp": "17896441",
-    "content": "0cf109e1"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-isaac-ai-brain-isaac-sim-photorealistic-simulation-0-cf-03d"
   },
   "/docs/isaac-ai-brain/nav2-path-planning-humanoid-fdd": {
-    "__comp": "17896441",
-    "content": "61b42fb9"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-isaac-ai-brain-nav-2-path-planning-humanoid-61-b-3df"
   },
   "/docs/ros2-humanoid/communication-model-fd0": {
-    "__comp": "17896441",
-    "content": "067af839"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-ros-2-humanoid-communication-model-067-9fd"
   },
   "/docs/ros2-humanoid/intro-to-ros2-96c": {
-    "__comp": "17896441",
-    "content": "570ab45c"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-ros-2-humanoid-intro-to-ros-2570-de1"
   },
   "/docs/ros2-humanoid/robot-structure-urdf-8bf": {
-    "__comp": "17896441",
-    "content": "a1ea6a40"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-ros-2-humanoid-robot-structure-urdfa-1-e-90a"
   },
   "/docs/vla-llm-integration/capstone-autonomous-humanoid-tasks-3d7": {
-    "__comp": "17896441",
-    "content": "80c942de"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-vla-llm-integration-capstone-autonomous-humanoid-tasks-80-c-c3f"
   },
   "/docs/vla-llm-integration/cognitive-planning-llms-ros2-237": {
-    "__comp": "17896441",
-    "content": "41715509"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-vla-llm-integration-cognitive-planning-llms-ros-2417-cd0"
   },
   "/docs/vla-llm-integration/voice-to-action-whisper-699": {
-    "__comp": "17896441",
-    "content": "5494b768"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-vla-llm-integration-voice-to-action-whisper-549-817"
   },
   "/-2e1": {
-    "__comp": "c4f5d8e4",
+    "__comp": "__comp---site-src-pages-index-jsc-4-f-f99",
     "__context": {
-      "plugin": "a7456010"
+      "plugin": "plugin---roota-74-3ae"
     },
-    "config": "5e9f5e1a"
+    "config": "config---root-5-e-9-9d3"
   }
 }
