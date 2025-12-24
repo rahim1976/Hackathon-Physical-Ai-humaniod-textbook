@@ -136,7 +136,7 @@ class OpenRouterAgentRAG:
 
             # Call the OpenRouter API using chat completions
             response = self.openrouter_client.chat.completions.create(
-                model="mistralai/devstral-2512:free",  # Using the specified free model
+                model="tngtech/deepseek-r1t2-chimera:free",  # Using the specified free model
                 messages=[
                     {
                         "role": "system",
