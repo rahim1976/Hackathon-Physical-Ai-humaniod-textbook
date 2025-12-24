@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import Accordion from '@site/src/components/Accordion';
 
 import styles from './index.module.css';
 
@@ -172,7 +171,16 @@ function FAQSection() {
             Support & Help
           </div>
           <div className={styles.faqContainer}>
-            <Accordion />
+            <div className={styles.faqContent}>
+              <h3>How do I get started?</h3>
+              <p>Begin with Module 1: ROS 2 Fundamentals to learn the basics of ROS 2 and its architecture.</p>
+
+              <h3>Do I need prior robotics experience?</h3>
+              <p>No prior experience is required, but programming knowledge will be helpful for understanding concepts faster.</p>
+
+              <h3>Can I use this for commercial projects?</h3>
+              <p>Our content is designed for educational purposes. Check individual library licenses for commercial use.</p>
+            </div>
           </div>
         </div>
       </div>

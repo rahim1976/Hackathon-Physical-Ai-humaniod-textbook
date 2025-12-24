@@ -1,0 +1,199 @@
+openapi: 3.0.0
+info:
+  title: RAG Retrieval API
+  version: 1.0.0
+  description: API for retrieving embeddings from Qdrant and validating content accuracy
+servers:
+  - url: http://localhost:8000
+    description: Local development server
+paths:
+  /retrieve:
+    post:
+      summary: Retrieve relevant chunks from vector database
+      description: Query the Qdrant vector database to retrieve relevant text chunks based on semantic similarity
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryRequest'
+      responses:
+        '200':
+          description: Successful retrieval of relevant chunks
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RetrievalResponse'
+        '400':
+          description: Invalid request parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /validate:
+    post:
+      summary: Validate retrieved content
+      description: Validate that retrieved chunks match original content and metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidationRequest'
+      responses:
+        '200':
+          description: Validation results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationResponse'
+        '400':
+          description: Invalid request parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    QueryRequest:
+      type: object
+      properties:
+        query:
+          type: string
+          description: The text query to search for
+          example: "What is ROS2?"
+        topK:
+          type: integer
+          description: Number of results to return
+          default: 5
+          minimum: 1
+          maximum: 100
+          example: 5
+        filters:
+          type: object
+          description: Additional filters for the search
+          example: {}
+      required:
+        - query
+    RetrievalResponse:
+      type: object
+      properties:
+        query:
+          type: string
+          description: The original query text
+          example: "What is ROS2?"
+        chunks:
+          type: array
+          items:
+            $ref: '#/components/schemas/RetrievedChunk'
+        totalResults:
+          type: integer
+          description: Total number of results found
+          example: 5
+        processingTime:
+          type: number
+          description: Time taken to process the query in milliseconds
+          example: 1234
+    RetrievedChunk:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier from Qdrant
+          example: "abc123-def456"
+        content:
+          type: string
+          description: The actual text content retrieved
+          example: "ROS2 is a flexible framework for developing robot applications..."
+        url:
+          type: string
+          description: Source URL of the content
+          example: "https://example.com/docs/ros2-intro"
+        position:
+          type: integer
+          description: Position of the chunk in the original document
+          example: 0
+        score:
+          type: number
+          description: Relevance score from similarity search
+          minimum: 0
+          maximum: 1
+          example: 0.95
+        createdAt:
+          type: number
+          description: Timestamp when the chunk was stored
+          example: 1234567890
+    ValidationRequest:
+      type: object
+      properties:
+        chunks:
+          type: array
+          items:
+            $ref: '#/components/schemas/RetrievedChunk'
+        expectedContent:
+          type: string
+          description: Expected content for validation
+          example: "Expected text content to match against"
+      required:
+        - chunks
+    ValidationResponse:
+      type: object
+      properties:
+        isValid:
+          type: boolean
+          description: Whether the content matches expected values
+          example: true
+        similarityScore:
+          type: number
+          description: Overall similarity score
+          minimum: 0
+          maximum: 1
+          example: 0.98
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationDetail'
+    ValidationDetail:
+      type: object
+      properties:
+        chunkId:
+          type: string
+          description: ID of the chunk being validated
+          example: "abc123-def456"
+        contentMatch:
+          type: boolean
+          description: Whether content matches expected
+          example: true
+        metadataMatch:
+          type: boolean
+          description: Whether metadata matches expected
+          example: true
+        similarityScore:
+          type: number
+          description: Similarity score for this chunk
+          minimum: 0
+          maximum: 1
+          example: 0.95
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+          example: "Invalid query parameter"
+        code:
+          type: string
+          description: Error code
+          example: "INVALID_QUERY"

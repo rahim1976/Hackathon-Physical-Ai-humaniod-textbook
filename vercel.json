@@ -13,8 +13,5 @@
       "src": "/(.*)",
       "dest": "/frontendofbook/build/$1"
     }
-  ],
-  "github": {
-    "silent": true
-  }
+  ]
 }

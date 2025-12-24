@@ -81,6 +81,17 @@ const config = {
           },
         ],
       },
+      headTags: [
+        {
+          tagName: 'link',
+          attributes: {
+            rel: 'stylesheet',
+            href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
+          },
+        },
+      ],
+      // Add the ChatWidget to be included globally
+      algolia: undefined, // Clear any existing Algolia config to avoid conflicts
       footer: {
         style: 'dark',
         links: [
