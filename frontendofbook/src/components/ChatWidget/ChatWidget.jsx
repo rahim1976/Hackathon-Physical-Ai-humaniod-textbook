@@ -132,7 +132,7 @@ const ChatWidget = () => {
       {/* Chat Widget Container */}
       <div className={clsx(styles.chatWidget, {[styles.open]: isOpen})}>
         <div className={styles.chatHeader}>
-          <h3>Physical AI Assistant</h3>
+          <h3>AI Assistant</h3>
           <button
             className={styles.closeBtn}
             onClick={toggleChat}
@@ -215,7 +215,7 @@ const ChatWidget = () => {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder="Ask about robotics, ROS2, humanoid design..."
+              placeholder="Ask About Physical AI & Humanoid Robotics."
               className={styles.messageInput}
               rows={1}
               disabled={isLoading}
