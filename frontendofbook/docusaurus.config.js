@@ -1,5 +1,6 @@
 // @ts-check
 // `@type` JSDoc annotations allow IDEs and type checkers to infer types
+
 const {themes} = require('prism-react-renderer');
 
 /** @type {import('@docusaurus/types').Config} */
@@ -11,6 +12,9 @@ const config = {
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
+stylesheets: [
+  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css',
+],
 
   // ...
 
