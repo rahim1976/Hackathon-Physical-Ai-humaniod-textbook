@@ -67,7 +67,7 @@ const ChatWidget = () => {
         messageToSend = `Context: ${selectedText}\n\nQuestion: ${currentInputValue}`;
       }
 
-      const response = await fetch('http://localhost:8000/chat', {
+      const response = await fetch('https://rahimalidev-ai-hackathon.hf.space/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -141,6 +141,7 @@ const ChatWidget = () => {
             <i className="fas fa-times"></i>
           </button>
         </div>
+
 
         <div className={styles.chatMessages}>
           {messages.length === 0 ? (
