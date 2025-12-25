@@ -215,7 +215,7 @@ const ChatWidget = () => {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder="Ask About Physical AI & Humanoid Robotics."
+              placeholder="Type your message..."
               className={styles.messageInput}
               rows={1}
               disabled={isLoading}
