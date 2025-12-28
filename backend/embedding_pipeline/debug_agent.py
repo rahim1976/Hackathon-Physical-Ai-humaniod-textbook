@@ -33,7 +33,7 @@ class QdrantRetrievalTool(BaseModel):
     )
     query: str = Field(..., description="The user's query to search for relevant content")
     top_k: int = Field(default=5, description="Number of top results to return")
-    threshold: float = Field(default=0.4, description="Minimum similarity score threshold")
+    threshold: float = Field(default=0.5, description="Minimum similarity score threshold")
 
     def retrieve_relevant_content(self) -> List[Dict[str, Any]]:
         """
@@ -121,8 +121,8 @@ class OpenRouterAgentRAG:
                         },
                         "threshold": {
                             "type": "number",
-                            "description": "Minimum similarity score threshold (default: 0.4)",
-                            "default": 0.4
+                            "description": "Minimum similarity score threshold (default: 0.5)",
+                            "default": 0.5
                         }
                     },
                     "required": ["query"]
@@ -141,7 +141,7 @@ class OpenRouterAgentRAG:
 
         return assistant
 
-    def chat(self, user_query: str, top_k: int = 5, threshold: float = 0.4) -> Dict[str, Any]:
+    def chat(self, user_query: str, top_k: int = 5, threshold: float = 0.5) -> Dict[str, Any]:
         """
         Main chat method that uses the OpenRouter Agent to answer user queries.
 
