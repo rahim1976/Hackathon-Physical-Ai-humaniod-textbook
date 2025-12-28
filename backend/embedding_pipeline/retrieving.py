@@ -208,7 +208,7 @@ class RAGRetriever:
 
         return json_response
 
-    def retrieve_context(self, query: str, k: int = 5, threshold: float = 0.4):
+    def retrieve_context(self, query: str, k: int = 5, threshold: float = 0.7):
         """
         Standardized retrieval function to fetch top-k chunks with threshold filtering
         """
@@ -362,7 +362,7 @@ def run_golden_query_test():
     golden_query = "What is ROS2?"
 
     # Retrieve results using the new standardized function
-    results = retriever.retrieve_context(golden_query, k=5, threshold=0.4)
+    results = retriever.retrieve_context(golden_query, k=5, threshold=0.7)
 
     print("Golden Query Test Results")
     print("=" * 50)
@@ -396,7 +396,7 @@ def run_golden_query_test():
         print(f"Section/heading metadata validation: {'PASS' if section_heading_valid else 'INFO - not all chunks have section/heading info'}")
 
         # Validate threshold filtering
-        threshold_valid = all([result['similarity_score'] >= 0.4 for result in results])
+        threshold_valid = all([result['similarity_score'] >= 0.7 for result in results])
         print(f"Threshold filtering validation: {'PASS' if threshold_valid else 'FAIL'}")
 
         # Performance check
@@ -453,9 +453,9 @@ def validate_acceptance_criteria():
 
     # Test 1: Function returns semantically relevant chunks for ROS 2 queries
     print("1. Function returns semantically relevant chunks for ROS 2 queries:")
-    ros2_results = retriever.retrieve_context("What is ROS2?", k=3, threshold=0.4)
-    print(f"   Query: 'What is ROS2?' -> {len(ros2_results)} results with threshold >= 0.4")
-    test1_pass = len(ros2_results) > 0 and all(r['similarity_score'] >= 0.4 for r in ros2_results)
+    ros2_results = retriever.retrieve_context("What is ROS2?", k=3, threshold=0.7)
+    print(f"   Query: 'What is ROS2?' -> {len(ros2_results)} results with threshold >= 0.7")
+    test1_pass = len(ros2_results) > 0 and all(r['similarity_score'] >= 0.7 for r in ros2_results)
     print(f"   Result: {'PASS' if test1_pass else 'FAIL'}")
 
     # Test 2: Latency is optimized for real-time interaction
@@ -470,7 +470,7 @@ def validate_acceptance_criteria():
 
     # Test 3: Unit test validates "Golden Query" against expected book metadata
     print("\n3. Unit test validates 'Golden Query' against expected book metadata:")
-    golden_results = retriever.retrieve_context("What is ROS2?", k=1, threshold=0.4)
+    golden_results = retriever.retrieve_context("What is ROS2?", k=1, threshold=0.7)
     has_metadata = len(golden_results) > 0 and all(
         'url' in result and 'content' in result and 'similarity_score' in result
         for result in golden_results
