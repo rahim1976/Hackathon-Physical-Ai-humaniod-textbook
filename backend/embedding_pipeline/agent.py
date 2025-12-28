@@ -94,7 +94,7 @@ class OpenRouterAgentRAG:
             logger.error(f"Error retrieving content from Qdrant: {str(e)}")
             return []
 
-    def chat(self, user_query: str, top_k: int = 5, threshold: float = 0.5) -> Dict[str, Any]:
+    def chat(self, user_query: str, top_k: int = 5, threshold: float = 0.4) -> Dict[str, Any]:
         """
         Main chat method that uses the OpenRouter API to answer user queries.
 
