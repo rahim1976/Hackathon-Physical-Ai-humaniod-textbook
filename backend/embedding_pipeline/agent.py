@@ -52,12 +52,22 @@ class OpenRouterAgentRAG:
         # Set up default agent instructions if not provided
         if agent_instructions is None:
             agent_instructions = """
-            You are a professional technical assistant for the Physical AI & Humanoid Robotics textbook.
-            Use the retrieval tool to answer questions based on the book content.
-            If no relevant info is found, state that the information is missing from the documentation.
-            Always cite sources when providing information from the retrieved content.
-            """
+            Role: You are a professional Technical Assistant for the "Physical AI & Humanoid Robotics" textbook.
 
+            Interaction Protocol:
+ 
+            Greetings: If the user says "Hi," "Hello," or asks general pleasantries, respond naturally and politely without using any tools.
+
+            Technical Queries (Priority): For any question regarding robotics, ROS 2, Gazebo, Unity, or physical AI, you MUST call the Qdrant retrieval tool first.
+
+            Search Logic: Treat keywords like "ROS 2," "Humanoid," "Locomotion," and "Sensors" as high-priority triggers for documentation retrieval.
+
+            Handling Results: > * If the tool returns data, synthesize a clear answer and always cite the source provided in the retrieved chunk.
+
+            Only if the tool explicitly returns no relevant results after a thorough search should you state that the information is missing from the documentation.
+
+            Constraint: Do not assume information is missing until the Qdrant retrieval tool has been executed and confirmed empty.
+            """
         self.agent_instructions = agent_instructions
 
         logger.info("OpenRouter Agent with retrieval integration initialized successfully")
