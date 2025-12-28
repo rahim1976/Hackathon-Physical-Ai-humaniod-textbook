@@ -36,7 +36,7 @@ def test_retrieval_functionality():
         agent = OpenRouterAgentRAG()
 
         # Test the retrieval function directly
-        results = agent.retrieve_content("What is ROS2?", top_k=3, threshold=0.5)
+        results = agent.retrieve_content("What is ROS2?", top_k=3, threshold=0.4)
         print(f"[PASS] Retrieval functionality executed successfully, found {len(results)} results")
 
         if results:
@@ -56,7 +56,7 @@ def test_agent_chat():
         agent = OpenRouterAgentRAG()
 
         # Test with a simple query
-        result = agent.chat("What is this textbook about?", top_k=3, threshold=0.5)
+        result = agent.chat("What is this textbook about?", top_k=3, threshold=0.4)
 
         print(f"[PASS] Agent chat executed successfully")
         print(f"Response preview: {result['response'][:100]}...")

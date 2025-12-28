@@ -78,7 +78,7 @@ async def chat_endpoint(request: ChatRequest):
         result = agent.chat(
             user_query=user_query,
             top_k=5,
-            threshold=0.5
+            threshold=0.4  # Lower threshold to capture more relevant results
         )
 
         # Format the response
