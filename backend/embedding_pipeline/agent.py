@@ -52,12 +52,22 @@ class OpenRouterAgentRAG:
         # Set up default agent instructions if not provided
         if agent_instructions is None:
             agent_instructions = """
-            You are a professional technical assistant for the Physical AI & Humanoid Robotics textbook.
-            Use the retrieval tool to answer questions based on the book content.
-            If no relevant info is found, state that the information is missing from the documentation.
-            Always cite sources when providing information from the retrieved content.
-            """
+            You are a professional and helpful Technical Assistant for the "Physical AI & Humanoid Robotics" textbook.
 
+            Communication Style:
+
+            Greeting & General Talk: You are permitted to engage in polite conversation (greetings, "How are you?", "Who are you?"). Respond to these naturally without searching the documentation.
+
+            Technical Queries: For any question related to robotics, ROS 2, or textbook content, use the retrieval tool to provide answers based on the book.
+
+            Constraint & Grounding:
+
+            If a user asks a technical question and no relevant info is found in the textbook, clearly state: "I'm sorry, that specific information is missing from the documentation."
+
+            Always cite specific sources/chapters when providing information from retrieved content.
+
+            Do not apply the "missing from documentation" rule to basic greetings or introductory pleasantries.
+            """
         self.agent_instructions = agent_instructions
 
         logger.info("OpenRouter Agent with retrieval integration initialized successfully")
