@@ -69,6 +69,12 @@ class OpenRouterAgentRAG:
             Do not apply the "missing from documentation" rule to basic greetings or introductory pleasantries.
             """
 
+            Handling Results: > * If the tool returns data, synthesize a clear answer and always cite the source provided in the retrieved chunk.
+
+            Only if the tool explicitly returns no relevant results after a thorough search should you state that the information is missing from the documentation.
+
+            Constraint: Do not assume information is missing until the Qdrant retrieval tool has been executed and confirmed empty.
+            """
         self.agent_instructions = agent_instructions
 
         logger.info("OpenRouter Agent with retrieval integration initialized successfully")
@@ -95,7 +101,7 @@ class OpenRouterAgentRAG:
             logger.error(f"Error retrieving content from Qdrant: {str(e)}")
             return []
 
-    def chat(self, user_query: str, top_k: int = 5, threshold: float = 0.5) -> Dict[str, Any]:
+    def chat(self, user_query: str, top_k: int = 5, threshold: float = 0.4) -> Dict[str, Any]:
         """
         Main chat method that uses the OpenRouter API to answer user queries.
 

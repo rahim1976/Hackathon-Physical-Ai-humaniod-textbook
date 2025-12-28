@@ -34,7 +34,7 @@ def test_agent_functionality():
 
     try:
         # Test the agent directly
-        result = agent.chat("What is this textbook about?", top_k=3, threshold=0.5)
+        result = agent.chat("What is this textbook about?", top_k=3, threshold=0.4)
 
         print("[PASS] Agent chat executed successfully")
         print(f"Response preview: {result['response'][:100]}...")
@@ -54,7 +54,7 @@ def test_retrieval_integration():
 
     try:
         # Test that the agent can retrieve content
-        results = agent.retrieve_content("What is ROS2?", top_k=3, threshold=0.5)
+        results = agent.retrieve_content("What is ROS2?", top_k=3, threshold=0.4)
 
         print(f"[PASS] Retrieval system executed successfully, found {len(results)} results")
         if results:
